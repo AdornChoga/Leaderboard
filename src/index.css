@@ -1,0 +1,12 @@
+html {
+  font-size: 62.5%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.main-title {
+  font-size: 6rem;
+  margin-left: 4rem;
+}
