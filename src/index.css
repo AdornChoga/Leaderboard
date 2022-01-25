@@ -1,0 +1,97 @@
+html {
+  font-size: 62.5%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.main-title {
+  font-size: 6rem;
+  margin-left: 3rem;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-left: 7em;
+  grid-gap: 8rem;
+  width: 90%;
+}
+
+h2 {
+  font-size: 5rem;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.recent-scores-heading {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+button {
+  font-size: 2rem;
+  padding: 0.2em 0.8em;
+  box-shadow: 0.4rem 0.4rem 0.4rem black;
+}
+
+.refresh-button {
+  align-self: center;
+}
+
+.scores-list {
+  font-size: 2rem;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid black;
+}
+
+.scores-list li {
+  padding: 0.5em 0.2em;
+}
+
+.scores-list li:nth-child(odd) {
+  background-color: white;
+}
+
+.scores-list li:nth-child(even) {
+  background-color: lightgrey;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  gap: 2rem;
+  margin-top: 4rem;
+}
+
+#name-input,
+#score-input {
+  display: block;
+  padding: 0.3em;
+  font-size: 2rem;
+}
+
+#submit {
+  align-self: flex-end;
+}
+
+footer {
+  position: fixed;
+  border: 0.2rem solid black;
+  bottom: 0;
+  height: 4rem;
+  width: 100%;
+  background-color: grey;
+}
