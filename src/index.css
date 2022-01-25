@@ -6,16 +6,23 @@ html {
   box-sizing: border-box;
 }
 
+body {
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+}
+
 .main-title {
   font-size: 6rem;
-  margin-left: 2rem;
+  margin-left: 3rem;
 }
 
 .grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  padding-left: 6em;
+  padding-left: 7em;
   grid-gap: 8rem;
+  width: 90%;
 }
 
 h2 {
@@ -30,17 +37,18 @@ h2 {
   justify-content: space-between;
 }
 
-.refresh-button {
-  align-self: center;
+button {
   font-size: 2rem;
-  font-weight: bold;
-  padding: 0.4em 0.8em;
+  padding: 0.2em 0.8em;
   box-shadow: 0.4rem 0.4rem 0.4rem black;
+}
+
+.refresh-button {
+  align-self: center
 }
 
 .scores-list {
   font-size: 2rem;
-  font-weight: bold;
   padding: 0;
   list-style: none;
   display: flex;
@@ -58,4 +66,22 @@ h2 {
 
 .scores-list li:nth-child(even) {
   background-color: lightgrey;
+}
+
+form {
+  display: flex;
+  flex-direction:  column;
+  width: 70%;
+  gap: 2rem;
+  margin-top: 4rem
+}
+
+#name-input, #score-input {
+  display: block;
+  padding: 0.3em;
+  font-size: 2rem;
+}
+
+#submit {
+  align-self: flex-end;
 }
