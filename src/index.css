@@ -8,5 +8,54 @@ html {
 
 .main-title {
   font-size: 6rem;
-  margin-left: 4rem;
+  margin-left: 2rem;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-left: 6em;
+  grid-gap: 8rem;
+}
+
+h2 {
+  font-size: 5rem;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.recent-scores-heading {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.refresh-button {
+  align-self: center;
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 0.4em 0.8em;
+  box-shadow: 0.4rem 0.4rem 0.4rem black;
+}
+
+.scores-list {
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid black;
+}
+
+.scores-list li {
+  padding: 0.5em 0.2em;
+}
+
+.scores-list li:nth-child(odd) {
+  background-color: white;
+}
+
+.scores-list li:nth-child(even) {
+  background-color: lightgrey;
 }
