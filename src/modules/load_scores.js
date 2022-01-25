@@ -4,6 +4,6 @@ const loadScores = (htmlContainer, recentScores) => {
     listItem.textContent = `${score.name}: ${score.score}`;
     htmlContainer.appendChild(listItem);
   });
-}
+};
 
 export default loadScores;
