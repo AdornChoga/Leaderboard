@@ -85,3 +85,13 @@ form {
 #submit {
   align-self: flex-end;
 }
+
+footer {
+  position: fixed;
+  border: 0.2rem solid black;
+  bottom: 0;
+  height: 4rem;
+  width: 100%;
+  background-color: grey;
+}
+
