@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1643138125180" clover="3.2.0">
-  <project timestamp="1643138125180" name="All files">
-    <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2" elements="7" coveredelements="7" complexity="0" loc="5" ncloc="5" packages="2" files="2" classes="2"/>
+<coverage generated="1643140974043" clover="3.2.0">
+  <project timestamp="1643140974044" name="All files">
+    <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2" elements="8" coveredelements="8" complexity="0" loc="6" ncloc="6" packages="2" files="2" classes="2"/>
     <package name="modules">
-      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
       <file name="load_scores.js" path="C:\Users\adorn\Documents\Microverse\github_projects\Leaderboard\src\modules\load_scores.js">
-        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="7" type="stmt"/>
         <line num="4" count="7" type="stmt"/>
