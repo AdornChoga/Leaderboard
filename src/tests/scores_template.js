@@ -1,4 +1,3 @@
-
 const scoresTemplate = `
   <ul class="scores-list">
   </ul>

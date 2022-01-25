@@ -44,7 +44,7 @@ button {
 }
 
 .refresh-button {
-  align-self: center
+  align-self: center;
 }
 
 .scores-list {
@@ -70,13 +70,14 @@ button {
 
 form {
   display: flex;
-  flex-direction:  column;
+  flex-direction: column;
   width: 70%;
   gap: 2rem;
-  margin-top: 4rem
+  margin-top: 4rem;
 }
 
-#name-input, #score-input {
+#name-input,
+#score-input {
   display: block;
   padding: 0.3em;
   font-size: 2rem;
@@ -94,4 +95,3 @@ footer {
   width: 100%;
   background-color: grey;
 }
-
