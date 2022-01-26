@@ -6,8 +6,9 @@ import loadScores from './load_scores.js';
 
 const scoresContainer = document.querySelector('.scores-list');
 const path = `${baseUrl}${games}${id}${scores}`;
-async function uploadScore(user, score) {
-  fetch(path, {
+
+const uploadScore = async (user, score) => {
+  const response = await fetch(path, {
     method: 'POST',
     body: JSON.stringify({
       user,
@@ -16,11 +17,10 @@ async function uploadScore(user, score) {
     headers: {
       'Content-type': 'application/json; charset=UTF-8',
     },
-  }).then((response) => response.json())
-    .then(() => {
-      scoresContainer.innerHTML = '';
-      loadScores(scoresContainer, recentScores);
-    });
+  });
+  await response.json();
+  scoresContainer.innerHTML = '';
+  loadScores(scoresContainer, recentScores);
 }
 
 export default uploadScore;

@@ -4,10 +4,11 @@ import {
 
 const path = `${baseUrl}${games}${id}${scores}`;
 
-async function recentScores() {
-  const data = await fetch(path).then((response) => response.json())
-    .then((json) => json.result);
-  return data;
+const recentScores = async () => {
+  const data = await fetch(path);
+  const response = await data.json();
+  const result = response.result;
+  return result;
 }
 
 export default recentScores;
