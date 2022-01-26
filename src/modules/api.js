@@ -1,7 +1,7 @@
 const api = {
   baseUrl: 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/',
   games: 'games/',
-  id: '',
+  id: 'wIoojpblu6oyLzgyCTu2/',
   scores: 'scores/',
 }
 
