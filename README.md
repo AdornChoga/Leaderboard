@@ -5,6 +5,7 @@
 # To-do-list
 
 > In this project I created the structure of a leaderboard using HTML and styled it using CSS. I loaded the recent scores  dynamically using JavaScript.
+> The scores are being loaded/submitted from/to the Leaderboard API using Javascript Fetch.
 >I used webpack to bundle the modules in the code base.
 
 ## Built With
