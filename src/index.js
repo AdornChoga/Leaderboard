@@ -11,10 +11,10 @@ const scoresContainer = document.querySelector('.scores-list');
 loadScores(scoresContainer, recentScores);
 
 submitBtn.addEventListener('click', () => {
-  submit()
+  submit();
 });
 
 refreshBtn.addEventListener('click', () => {
-  scoresContainer.innerHTML = "";
-  loadScores(scoresContainer, recentScores)
-})
+  scoresContainer.innerHTML = '';
+  loadScores(scoresContainer, recentScores);
+});

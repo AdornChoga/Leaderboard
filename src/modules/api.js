@@ -3,8 +3,12 @@ const api = {
   games: 'games/',
   id: 'MwDxg2EK2lG5Z5KwwYCx/',
   scores: 'scores/',
-}
+};
 
-const {baseUrl,games,id,scores} = api;
+const {
+  baseUrl, games, id, scores,
+} = api;
 
-export {baseUrl, games, id, scores}
+export {
+  baseUrl, games, id, scores,
+};

@@ -5,8 +5,7 @@ const loadScores = (htmlContainer, scores) => {
       listItem.textContent = `${score.user}: ${score.score}`;
       htmlContainer.appendChild(listItem);
     });
-  })
-  
+  });
 };
 
 export default loadScores;

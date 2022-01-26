@@ -1,11 +1,13 @@
-import {baseUrl, games, id, scores} from './api.js';
+import {
+  baseUrl, games, id, scores,
+} from './api.js';
 
-const path = `${baseUrl}${games}${id}${scores}`
+const path = `${baseUrl}${games}${id}${scores}`;
 
 async function recentScores() {
-  const data = fetch(path).then(response => response.json()).
-  then((json) => json.result);
-  return await data;
+  const data = await fetch(path).then((response) => response.json())
+    .then((json) => json.result);
+  return data;
 }
 
 export default recentScores;
