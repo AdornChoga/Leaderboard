@@ -4,7 +4,7 @@ const loadScores = async (htmlContainer, scores) => {
     const listItem = document.createElement('li');
     listItem.textContent = `${score.user}: ${score.score}`;
     htmlContainer.appendChild(listItem);
-  })
+  });
 };
 
 export default loadScores;

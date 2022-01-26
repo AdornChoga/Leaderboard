@@ -21,6 +21,6 @@ const uploadScore = async (user, score) => {
   await response.json();
   scoresContainer.innerHTML = '';
   loadScores(scoresContainer, recentScores);
-}
+};
 
 export default uploadScore;
