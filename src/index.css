@@ -12,6 +12,10 @@ body {
   font-family: sans-serif;
 }
 
+main {
+  padding-bottom: 8em;
+}
+
 .main-title {
   font-size: 6rem;
   margin-left: 3rem;
