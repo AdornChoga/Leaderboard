@@ -8,5 +8,4 @@ async function recentScores() {
   return await data;
 }
 
-
 export default recentScores;
