@@ -10,6 +10,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: sans-serif;
+  background-color: rgb(112, 189, 25);
 }
 
 main {
@@ -45,6 +46,16 @@ button {
   font-size: 2rem;
   padding: 0.2em 0.8em;
   box-shadow: 0.4rem 0.4rem 0.4rem black;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: rgb(51, 164, 240);
+  color: white;
+}
+
+button:active {
+  transform: scale(0.9)
 }
 
 .refresh-button {
@@ -85,6 +96,13 @@ form {
   display: block;
   padding: 0.3em;
   font-size: 2rem;
+  border-radius: 0.4rem;
+  outline: none;
+  border: 0.2rem solid rgb(19, 134, 129);
+}
+
+input:focus {
+  color: rgb(236, 16, 16);
 }
 
 #submit {
