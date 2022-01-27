@@ -16,7 +16,7 @@
 
 ## Live Demo
 
-[Live Demo Link]()
+[Live Demo Link](https://adornchoga.github.io/Leaderboard/)
 
 ## Getting Started
 
