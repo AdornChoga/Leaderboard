@@ -1,8 +1,14 @@
-const SCORES = [
-  { name: 'Name', score: 100 }, { name: 'Name', score: 20 },
-  { name: 'Name', score: 20 }, { name: 'Name', score: 78 },
-  { name: 'Name', score: 125 }, { name: 'Name', score: 77 },
-  { name: 'Name', score: 42 },
-];
+import {
+  baseUrl, games, id, scores,
+} from './api.js';
 
-export default SCORES;
+const path = `${baseUrl}${games}${id}${scores}`;
+
+const recentScores = async () => {
+  const data = await fetch(path);
+  const response = await data.json();
+  const { result } = response;
+  return result;
+};
+
+export default recentScores;
