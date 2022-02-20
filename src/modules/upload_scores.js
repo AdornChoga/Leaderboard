@@ -1,10 +1,7 @@
 import {
   baseUrl, games, id, scores,
 } from './api.js';
-import recentScores from './recent_scores.js';
-import loadScores from './load_scores.js';
 
-const scoresContainer = document.querySelector('.scores-list');
 const path = `${baseUrl}${games}${id}${scores}`;
 
 const uploadScore = async (user, score) => {
@@ -19,8 +16,6 @@ const uploadScore = async (user, score) => {
     },
   });
   await response.json();
-  scoresContainer.innerHTML = '';
-  loadScores(scoresContainer, recentScores);
 };
 
 export default uploadScore;

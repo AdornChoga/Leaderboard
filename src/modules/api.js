@@ -1,7 +1,9 @@
+import currentGame from './localstorage/current-game.js';
+
 const api = {
   baseUrl: 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/',
   games: 'games/',
-  id: '2NkEop3pNwkXNWuaOz7T/',
+  id: `${currentGame.fetchCurrentGame().gameId}/`,
   scores: 'scores/',
 };
 

@@ -13,13 +13,81 @@ body {
   background-color: rgb(112, 189, 25);
 }
 
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: darkcyan;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  justify-content: space-between;
+  padding-right: 2rem;
+}
+
+nav h1 {
+  margin: 0;
+  cursor: pointer;
+}
+
+.home {
+  display: none;
+}
+
 main {
+  margin-top: 10rem;
   padding-bottom: 8em;
 }
 
 .main-title {
   font-size: 6rem;
   margin-left: 3rem;
+}
+
+.my-games-container {
+  display: none;
+}
+
+.popups-container {
+  display: none;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  background-color: rgba(26, 24, 18, 0.5);
+  backdrop-filter: blur(0.5rem);
+}
+
+.enter-game-popup {
+  margin-inline: auto;
+  background-color: white;
+  margin-top: 1rem;
+  width: 40%;
+}
+
+fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+legend {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+#game-input {
+  display: block;
+  margin: 0 auto;
+  width: 80%;
+}
+
+#submit-game {
+  align-self: flex-end;
 }
 
 .grid-container {
@@ -42,23 +110,23 @@ h2 {
   justify-content: space-between;
 }
 
-button {
+.leaderboard-buttons {
   font-size: 2rem;
   padding: 0.2em 0.8em;
   box-shadow: 0.4rem 0.4rem 0.4rem black;
   cursor: pointer;
 }
 
-button:hover {
+.leaderboard-buttons:hover {
   background-color: rgb(51, 164, 240);
   color: white;
 }
 
-button:active {
+.leaderboard-buttons:active {
   transform: scale(0.9);
 }
 
-.refresh-button {
+#refresh-button {
   align-self: center;
 }
 
@@ -105,7 +173,7 @@ input:focus {
   color: rgb(236, 16, 16);
 }
 
-#submit {
+#submit-score {
   align-self: flex-end;
 }
 

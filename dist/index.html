@@ -7,13 +7,26 @@
   <title>Leaderboard</title>
 <script defer src="index.js"></script></head>
 <body>
+  <header>
+    <nav>
+      <ul>
+        <li>
+          <h1 class="current-game">Current Game</h1>
+          <h1 class="home">Home</h1>
+        </li>
+        <li>
+          <h1 class="my-games-link">My games</h1>
+        </li>
+      </ul>
+    </nav>
+  </header>
   <main>
     <h1 class="main-title">Leaderboard</h1>
     <div class="grid-container">
       <section class="recent-scores">
         <div class="recent-scores-heading">
           <h2 id="recent-scores-title">Recent scores</h2>
-          <button type="button" class="refresh-button">Refresh</button>
+          <button type="button" class="leaderboard-buttons" id="refresh-button">Refresh</button>
         </div>
         <ul class="scores-list">
         </ul>
@@ -21,12 +34,14 @@
       <section class="add-scores">
         <h2 id="add-score-tile">Add your score</h2>
         <form>
-          <input type="text" id="name-input" placeholder="Your name" />
-          <input type="text" id="score-input" placeholder="Your score" />
-          <button type="button" id="submit">Submit</button>
+          <input type="text" id="name-input" placeholder="Your name" value="" autocomplete="off"/>
+          <input type="text" id="score-input" placeholder="Your score" value="" autocomplete="off"/>
+          <button type="button" class="leaderboard-buttons" id="submit-score">Submit</button>
         </form>
       </section>
     </div>
+    <div class="my-games-container"></div>
+    <div class="popups-container"></div>
   </main>
   <footer></footer>
 </body>
