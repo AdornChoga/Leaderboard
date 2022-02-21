@@ -10,13 +10,18 @@ body {
   padding: 0;
   margin: 0;
   font-family: sans-serif;
-  background-color: rgb(112, 189, 25);
+  background-image:
+    linear-gradient(rgba(192, 52, 104, 0.37), rgba(183, 77, 115, 0.5)),
+    url(./assets/images/background.jpg);
+  background-position: center;
+  background-size: contain;
 }
 
 header {
   position: fixed;
   top: 0;
   left: 0;
+  height: 5rem;
   width: 100%;
   background-color: darkcyan;
 }
@@ -26,6 +31,7 @@ nav ul {
   list-style: none;
   justify-content: space-between;
   padding-right: 2rem;
+  align-items: center;
 }
 
 nav h1 {
@@ -33,22 +39,43 @@ nav h1 {
   cursor: pointer;
 }
 
+.main-title {
+  font-family: 'Jockey One', sans-serif;
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.7rem;
+  font-style: italic;
+  text-shadow: 0.4rem 0.2rem 0.4rem white;
+}
+
 .home {
   display: none;
+  font-size: 2.5rem;
+}
+
+.my-games-link {
+  font-size: 2.5rem;
+  font-family: 'Jockey One', sans-serif;
 }
 
 main {
-  margin-top: 10rem;
-  padding-bottom: 8em;
+  padding-left: 8rem;
+  margin-top: 7rem;
+  padding-bottom: 3rem;
 }
 
-.main-title {
-  font-size: 6rem;
+.current-game {
+  font-size: 2.3rem;
   margin-left: 3rem;
+  color: cyan;
+  width: fit-content;
+  padding: 0.5rem;
+  letter-spacing: 0.2rem;
 }
 
 .my-games-container {
   display: none;
+  margin: 0;
+  width: 80%;
 }
 
 .popups-container {
@@ -67,27 +94,44 @@ main {
   background-color: white;
   margin-top: 1rem;
   width: 40%;
-}
-
-fieldset {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  padding: 1rem 1rem 3rem 1rem;
 }
 
 legend {
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+fieldset div {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin-inline: auto;
 }
 
 #game-input {
   display: block;
   margin: 0 auto;
-  width: 80%;
+  width: 100%;
+  padding: 0.5rem 0.3rem;
+  border: rgba(26, 24, 18, 0.5) solid;
+  border-radius: 0.5rem;
+  outline: none;
+  font-size: 1.7rem;
 }
 
 #submit-game {
+  padding: 0.3rem 1rem;
+  border-radius: 0.5rem;
   align-self: flex-end;
+  font-size: 1.3rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#submit-game:active {
+  transform: scale(0.8);
 }
 
 .grid-container {
@@ -99,26 +143,37 @@ legend {
 }
 
 h2 {
-  font-size: 5rem;
+  font-size: 3.5rem;
   margin-top: 0;
   margin-bottom: 0;
+}
+
+#recent-scores-title,
+#add-score-title {
+  font-size: 3rem;
+  color: white;
+  font-family: "Helvetica Neue", sans-serif;
 }
 
 .recent-scores-heading {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  width: 85%;
 }
 
 .leaderboard-buttons {
-  font-size: 2rem;
-  padding: 0.2em 0.8em;
-  box-shadow: 0.4rem 0.4rem 0.4rem black;
+  font-weight: bold;
+  font-size: 1.6rem;
+  border: none;
+  padding: 0.5rem 1.5rem;
   cursor: pointer;
+  border-radius: 0.6rem;
+  background-color: #257eb8;
 }
 
 .leaderboard-buttons:hover {
-  background-color: rgb(51, 164, 240);
+  background-color: rgba(86, 233, 123, 0.726);
   color: white;
 }
 
@@ -131,16 +186,24 @@ h2 {
 }
 
 .scores-list {
-  font-size: 2rem;
-  padding: 0;
+  width: 83%;
+  height: 63vh;
+  overflow-y: auto;
+  font-size: 1.7rem;
+  padding: 1rem;
   list-style: none;
   display: flex;
+  gap: 1rem;
   flex-direction: column;
   border: 2px solid black;
+  background-color: darkcyan;
 }
 
 .scores-list li {
   padding: 0.5em 0.2em;
+  border-left: 0.3rem solid black;
+  border-top-right-radius: 0.8rem;
+  border-bottom-right-radius: 0.8rem;
 }
 
 .scores-list li:nth-child(odd) {
@@ -170,24 +233,78 @@ form {
 }
 
 input:focus {
-  color: rgb(236, 16, 16);
+  box-shadow: 0 0 0.8rem cyan;
 }
 
 #submit-score {
   align-self: flex-end;
 }
 
+.game-menu-container {
+  padding-top: 1rem;
+}
+
+#select-game {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin: 0;
+  margin-bottom: 0.7rem;
+  color: #ff8749;
+}
+
+.game-menu {
+  width: 17rem;
+  height: 3rem;
+  font-size: 1.6rem;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: #257eb8;
+}
+
+.games-list-title {
+  font-size: 2.5rem;
+  color: white;
+}
+
 .my-games-section {
   display: flex;
   flex-direction: column-reverse;
   align-items: center;
-  border: solid red;
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
 }
 
 .new-game-form {
   width: 30%;
+  margin: 0.5rem;
+}
+
+#input-new-game {
+  padding: 0.4rem;
+  font-size: 1.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  outline: none;
+}
+
+#submit-new-game {
+  width: fit-content;
+  margin-inline: auto;
+  border-radius: 0.5rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+  padding: 0.4rem;
+  cursor: pointer;
+  border: none;
+}
+
+#submit-new-game:hover {
+  background-color: #257eb8;
+  color: white;
+}
+
+#submit-new-game:active {
+  transform: scale(0.8);
 }
 
 .games-list-container {
@@ -196,9 +313,11 @@ input:focus {
   gap: 1rem;
   list-style-type: none;
   padding: 1rem;
-  width: 40%;
-  height: 30rem;
-  border: solid white;
+  width: 45%;
+  height: 55vh;
+  border-top: solid red;
+  background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(0.3rem);
   overflow-y: auto;
 }
 
@@ -207,11 +326,19 @@ input:focus {
   justify-content: space-between;
   align-items: center;
   font-size: 1.5rem;
-  border: solid white;
+  outline: rgb(19, 134, 129) inset;
+  padding: 0.8rem;
+  background-color: #008b8b;
+}
+
+.game-list-item p {
+  margin: 0;
+  color: white;
+  font-size: 1.8rem;
 }
 
 .delete-game {
-  font-size: 1rem;
+  font-size: 1.4rem;
   color: red;
   cursor: pointer;
 }

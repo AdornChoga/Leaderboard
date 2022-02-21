@@ -4,6 +4,10 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Jockey+One&family=Poppins:wght@500&display=swap');
+  </style>
+  <script src="https://kit.fontawesome.com/2b1476549e.js" crossorigin="anonymous"></script>
   <script src="https://kit.fontawesome.com/2b1476549e.js" crossorigin="anonymous"></script>
   <title>Leaderboard</title>
 </head>
@@ -12,7 +16,7 @@
     <nav>
       <ul>
         <li>
-          <h1 class="current-game"></h1>
+          <h1 class="main-title">LEADERBOARD</h1>
           <h1 class="home">Home</h1>
         </li>
         <li>
@@ -22,7 +26,7 @@
     </nav>
   </header>
   <main>
-    <h1 class="main-title">Leaderboard</h1>
+    <h1 class="current-game"></h1>
     <div class="grid-container">
       <section class="recent-scores">
         <div class="recent-scores-heading">
@@ -33,15 +37,17 @@
         </ul>
       </section>
       <section class="add-scores">
-        <h2 id="add-score-tile">Add your score</h2>
+        <h2 id="add-score-title">Add Score</h2>
         <form>
-          <input type="text" id="name-input" placeholder="Your name" value="" autocomplete="off"/>
-          <input type="text" id="score-input" placeholder="Your score" value="" autocomplete="off"/>
+          <input type="text" id="name-input" placeholder="Player name" value="" autocomplete="off"/>
+          <input type="text" id="score-input" placeholder="Player score" value="" autocomplete="off"/>
           <button type="button" class="leaderboard-buttons" id="submit-score">Submit</button>
         </form>
       </section>
     </div>
-    <div class="my-games-container"></div>
+    <div class="my-games-container">
+      <h1>My Games List</h1>
+    </div>
     <div class="popups-container"></div>
   </main>
   <footer></footer>

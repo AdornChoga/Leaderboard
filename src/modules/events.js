@@ -17,7 +17,8 @@ const events = () => {
     gridContainer.style.display = 'none';
     displayedGame.style.display = 'none';
     home.style.display = 'block';
-    myGamesContainer.style.display = 'block';
+    myGamesContainer.style.display = 'flex';
+    myGamesLink.style.display = 'none';
   });
 
   home.addEventListener('click', () => {
@@ -26,12 +27,13 @@ const events = () => {
     displayedGame.style.display = 'block';
     home.style.display = 'none';
     myGamesContainer.style.display = 'none';
+    myGamesLink.style.display = 'block';
   });
 
   if (gamesData.fetchGames().length > 0) {
     gamesData.fetchGames().forEach((game) => {
       if (game.gameId === currentGame.fetchCurrentGame().gameId) {
-        displayedGame.innerHTML = game.gameName;
+        displayedGame.innerHTML = game.gameName.toUpperCase();
       }
     });
   } else {
