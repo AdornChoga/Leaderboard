@@ -6,6 +6,10 @@ class gamesData {
     return JSON.parse(localStorage.getItem('games'));
   }
 
+  static setGames(games) {
+    localStorage.setItem('games', JSON.stringify(games));
+  }
+
   static updateGames(game) {
     const games = this.fetchGames();
     games.push(game);

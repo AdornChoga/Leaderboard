@@ -7,9 +7,13 @@ class currentGame {
   }
 
   static setCurrentGame(id) {
-    const currentGame = this.fetchCurrentGame();
-    currentGame.gameId = id;
-    localStorage.setItem('current-game', JSON.stringify(currentGame));
+    if (id) {
+      const currentGame = this.fetchCurrentGame();
+      currentGame.gameId = id;
+      localStorage.setItem('current-game', JSON.stringify(currentGame));
+    } else {
+      localStorage.setItem('current-game', JSON.stringify({}));
+    }
   }
 }
 

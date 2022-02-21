@@ -1,10 +1,10 @@
-import {
-  baseUrl, games, id, scores,
-} from './api.js';
-
-const path = `${baseUrl}${games}${id}${scores}`;
+import apiPathInfo from './api.js';
 
 const uploadScore = async (user, score) => {
+  const {
+    baseUrl, games, id, scores,
+  } = apiPathInfo();
+  const path = `${baseUrl}${games}${id}${scores}`;
   const response = await fetch(path, {
     method: 'POST',
     body: JSON.stringify({
