@@ -1,6 +1,7 @@
-import { baseUrl, games } from './api.js';
+import apiPathInfo from './api.js';
 
 const createGame = async (gameName) => {
+  const { baseUrl, games } = apiPathInfo();
   const path = `${baseUrl}${games}`;
   const response = await fetch(path, {
     method: 'POST',

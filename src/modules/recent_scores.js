@@ -1,10 +1,10 @@
-import {
-  baseUrl, games, id, scores,
-} from './api.js';
-
-const path = `${baseUrl}${games}${id}${scores}`;
+import apiPathInfo from './api.js';
 
 const recentScores = async () => {
+  const {
+    baseUrl, games, id, scores,
+  } = apiPathInfo();
+  const path = `${baseUrl}${games}${id}${scores}`;
   const data = await fetch(path);
   const response = await data.json();
   const { result } = response;

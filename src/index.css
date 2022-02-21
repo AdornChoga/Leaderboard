@@ -177,6 +177,45 @@ input:focus {
   align-self: flex-end;
 }
 
+.my-games-section {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  border: solid red;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.new-game-form {
+  width: 30%;
+}
+
+.games-list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  list-style-type: none;
+  padding: 1rem;
+  width: 40%;
+  height: 30rem;
+  border: solid white;
+  overflow-y: auto;
+}
+
+.game-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.5rem;
+  border: solid white;
+}
+
+.delete-game {
+  font-size: 1rem;
+  color: red;
+  cursor: pointer;
+}
+
 footer {
   position: fixed;
   border: 0.2rem solid black;
