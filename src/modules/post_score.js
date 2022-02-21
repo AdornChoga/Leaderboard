@@ -1,6 +1,6 @@
 import apiPathInfo from './api.js';
 
-const uploadScore = async (user, score) => {
+const postScore = async (user, score) => {
   const {
     baseUrl, games, id, scores,
   } = apiPathInfo();
@@ -18,4 +18,4 @@ const uploadScore = async (user, score) => {
   await response.json();
 };
 
-export default uploadScore;
+export default postScore;

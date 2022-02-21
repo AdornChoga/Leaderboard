@@ -1,36 +1,29 @@
 import './index.css';
-import events from './modules/events.js';
+import { navigation, setHomeGame, addScore } from './modules/events.js';
 import { myGamesTemplate, enterGamePopup } from './modules/html-templates.js';
 import currentGame from './modules/localstorage/current-game.js';
 import recentScores from './modules/recent_scores.js';
 import loadScores from './modules/load_scores.js';
-import submit from './modules/submit.js';
 
-const submitBtn = document.querySelector('#submit-score');
-const refreshBtn = document.querySelector('#refresh-button');
-const scoresContainer = document.querySelector('.scores-list');
+const popupContainer = document.querySelector('.popups-container');
 
-events();
+navigation();
+
+setHomeGame();
+
+addScore();
 
 myGamesTemplate();
 
 if (currentGame.fetchCurrentGame().gameId) {
+  const scoresContainer = document.querySelector('.scores-list');
   loadScores(scoresContainer, recentScores);
 } else {
-  enterGamePopup();
+  enterGamePopup(popupContainer);
 }
 
 window.addEventListener('load', () => {
   if (localStorage.getItem('games') === null) {
-    enterGamePopup();
+    enterGamePopup(popupContainer);
   }
-});
-
-submitBtn.addEventListener('click', () => {
-  submit();
-});
-
-refreshBtn.addEventListener('click', () => {
-  scoresContainer.innerHTML = '';
-  loadScores(scoresContainer, recentScores);
 });
