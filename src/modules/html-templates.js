@@ -8,8 +8,10 @@ import events from './events.js';
 const myGamesTemplate = () => {
   const myGamesContainer = document.querySelector('.my-games-container');
   myGamesContainer.innerHTML = `
-    <select class="game-menu">
-    </select>
+    <div class="game-menu-container">
+      <h1 id="select-game">Current Game:</h1>
+      <select class="game-menu"></select>
+    </div>
     <div class="my-games-section">
       <form class="new-game-form">
         <input type="text" placeholder="Add a new game..." id="input-new-game" value=""/>
@@ -51,6 +53,9 @@ const myGamesTemplate = () => {
     gamesList.appendChild(listItem);
   });
   myGamesSection.appendChild(gamesList);
+  myGamesSection.innerHTML += `
+    <h1 class="games-list-title">Games</h1>
+  `;
 
   const newGameForm = document.querySelector('.new-game-form');
   const inputNewGame = document.querySelector('#input-new-game');
@@ -87,9 +92,13 @@ const enterGamePopup = () => {
   popupContainer.innerHTML = `
     <form class="enter-game-popup">
       <fieldset>
-        <legend>Enter Game</legend>
-        <input type="text" placeholder="Enter Game" id="game-input" value="" />
-        <button type="submit" id="submit-game">OK</button>
+        <legend>Welcome to Leaderboard</legend>
+        <br />
+        <div>
+          <input type="text" placeholder="Enter game name" id="game-input" value="" />
+          <br />
+          <button type="submit" id="submit-game">OK</button>
+        </div>
       </fieldset>
     </form>
   `;
