@@ -150,7 +150,7 @@ const navigation = () => {
 
   home.addEventListener('click', () => {
     mainTitle.style.display = 'block';
-    gridContainer.style.display = 'grid';
+    gridContainer.style.display = window.innerWidth > 700 ? 'grid' : 'flex';
     displayedGame.style.display = 'block';
     home.style.display = 'none';
     myGamesContainer.style.display = 'none';
