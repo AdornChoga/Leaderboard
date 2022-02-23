@@ -45,7 +45,7 @@ const enterGamePopup = (container) => {
         <legend>Welcome to Leaderboard</legend>
         <br />
         <div>
-          <input type="text" placeholder="Enter game name" id="game-input" value="" />
+          <input type="text" placeholder="Enter a game" id="game-input" value="" />
           <br />
           <button type="submit" id="submit-game">OK</button>
         </div>
@@ -53,8 +53,8 @@ const enterGamePopup = (container) => {
     </form>
   `;
   container.style.display = 'block';
-  const gameInputForm = document.querySelector('.enter-game-popup');
-  const game = document.querySelector('#game-input');
+  const gameInputForm = container.querySelector('.enter-game-popup');
+  const game = container.querySelector('#game-input');
   const elements = { form: gameInputForm, gameInput: game };
   events.submitInitialGame(elements, container);
 };
