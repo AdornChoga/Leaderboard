@@ -347,12 +347,22 @@ input:focus {
 }
 
 footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
   position: fixed;
-  border: 0.2rem solid black;
+  border-top: 0.1rem solid white;
   bottom: 0;
   height: 4rem;
   width: 100%;
-  background-color: grey;
+  background-color: #517b99;
+}
+
+.copyright {
+  color: #fafafa;
+  font-size: 1.8rem;
+  font-weight: bold;
+  padding-right: 3rem;
 }
 
 @media screen and (max-width: 700px) {
