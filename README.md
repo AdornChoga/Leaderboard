@@ -3,7 +3,7 @@
 
 > Leaderboard is a website for recording and storing games their respective scores. The data entered by the user is sent to a Leaderboard API and sourced from the same API to be to displayed on the UI. The user's browser local storage is used to store the id for creating the endpoint for the API.
 
-[!](./demos/Leaderboard.png)
+[](./demos/Leaderboard.png)
 
 ## Built With
 
