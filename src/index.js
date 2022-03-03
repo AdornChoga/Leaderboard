@@ -1,23 +1,21 @@
 import './index.css';
-import { navigation, setHomeGame, addScore } from './modules/events.js';
+import {
+  navigation, setHomeGame, addScore, refreshScores,
+} from './modules/events.js';
 import { myGamesTemplate, enterGamePopup } from './modules/html-templates.js';
 import currentGame from './modules/localstorage/current-game.js';
-import recentScores from './modules/recent_scores.js';
-import loadScores from './modules/load_scores.js';
 
 const popupContainer = document.querySelector('.popups-container');
 
 navigation();
-
-setHomeGame();
-
 addScore();
-
+refreshScores();
 myGamesTemplate();
 
 if (currentGame.fetchCurrentGame().gameId) {
-  const scoresContainer = document.querySelector('.scores-list');
-  loadScores(scoresContainer, recentScores);
+  const refreshBtn = document.querySelector('#refresh-button');
+  setHomeGame();
+  refreshBtn.click();
 } else {
   enterGamePopup(popupContainer);
 }

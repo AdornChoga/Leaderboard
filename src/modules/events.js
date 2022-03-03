@@ -4,12 +4,16 @@ import createGame from './create_game.js';
 import recentScores from './recent_scores.js';
 import loadScores from './load_scores.js';
 import postScore from './post_score.js';
+import {
+  addNewGameSpinnner, initialGameSpinnner, scoreRefreshSpinnner, scoreUploadSpinnner,
+} from './spinners.js';
 
 const submitInitialGame = (htmlElements, container) => {
   const { form, gameInput } = htmlElements;
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     if (gameInput.value !== '') {
+      initialGameSpinnner('start');
       const { gameName, gameId } = await createGame(gameInput.value);
       gamesData.updateGames({ gameName, gameId });
       currentGame.setCurrentGame(gameId);
@@ -21,22 +25,27 @@ const submitInitialGame = (htmlElements, container) => {
 
 const addScore = () => {
   const addScoreForm = document.querySelector('.add-score-form');
-  const refreshBtn = document.querySelector('#refresh-button');
-  const scoresContainer = document.querySelector('.scores-list');
 
   addScoreForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const nameInput = document.querySelector('#name-input');
     const scoreInput = document.querySelector('#score-input');
     if (nameInput.value !== '' && scoreInput.value !== '') {
+      scoreUploadSpinnner('start');
       postScore(nameInput.value, Number(scoreInput.value));
       nameInput.value = '';
       scoreInput.value = '';
     }
   });
+};
+
+const refreshScores = () => {
+  const refreshBtn = document.querySelector('#refresh-button');
+  const scoresContainer = document.querySelector('.scores-list');
 
   refreshBtn.addEventListener('click', () => {
     if (currentGame.fetchCurrentGame().gameId) {
+      scoreRefreshSpinnner('start');
       scoresContainer.innerHTML = '';
       loadScores(scoresContainer, recentScores);
     }
@@ -100,11 +109,14 @@ const addGame = (htmlElements, rerender) => {
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const newGame = gameInput.value.trim();
-    const { gameName, gameId } = await createGame(newGame);
-    gamesData.updateGames({ gameName, gameId });
-    rerender();
-    setHomeGame();
-    form.reset();
+    if (newGame !== '') {
+      addNewGameSpinnner('start');
+      const { gameName, gameId } = await createGame(newGame);
+      gamesData.updateGames({ gameName, gameId });
+      rerender();
+      setHomeGame();
+      form.reset();
+    }
   });
 };
 
@@ -162,5 +174,5 @@ export {
   submitInitialGame,
   deleteGame, addGame, createGamesList,
   createGamesMenu, selectCurrentGame, navigation,
-  setHomeGame, addScore,
+  setHomeGame, addScore, refreshScores,
 };

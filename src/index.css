@@ -50,6 +50,7 @@ nav h1 {
 .home {
   display: none;
   font-size: 2.5rem;
+  font-weight: bold;
 }
 
 .my-games-link {
@@ -147,6 +148,12 @@ h2 {
   margin-bottom: 0;
 }
 
+.recent-scores {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
 #recent-scores-title,
 #add-score-title {
   font-size: 3rem;
@@ -182,6 +189,7 @@ h2 {
 
 #refresh-button {
   align-self: center;
+  min-width: 10rem;
 }
 
 .scores-list {
@@ -224,7 +232,7 @@ h2 {
 #name-input,
 #score-input {
   display: block;
-  padding: 0.3em;
+  padding: 0.4rem;
   font-size: 2rem;
   border-radius: 0.4rem;
   outline: none;
@@ -237,6 +245,11 @@ input:focus {
 
 #submit-score {
   align-self: flex-end;
+  min-width: 10rem;
+}
+
+.submission-msg {
+  color: white;
 }
 
 .game-menu-container {
@@ -291,14 +304,19 @@ input:focus {
 }
 
 #submit-new-game {
-  width: 30%;
+  width: 10rem;
   margin-inline: auto;
   border-radius: 0.5rem;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   font-weight: bold;
-  padding: 0.4rem;
+  padding: 0.3rem;
   cursor: pointer;
   border: none;
+}
+
+.new-game-spinner {
+  width: 1.6rem;
+  height: 1.6rem;
 }
 
 #submit-new-game:hover {
@@ -410,7 +428,7 @@ footer {
 
   .scores-list {
     width: clamp(15rem, 90vw, 45rem);
-    height: 80vh;
+    height: 55vh;
   }
 
   .add-score-form {
