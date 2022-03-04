@@ -13,8 +13,10 @@ const submitInitialGame = (htmlElements, container) => {
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     if (gameInput.value !== '') {
+      let game = gameInput.value;
+      game = game.charAt(0).toUpperCase() + game.slice(1);
       initialGameSpinnner('start');
-      const { gameName, gameId } = await createGame(gameInput.value);
+      const { gameName, gameId } = await createGame(game);
       gamesData.updateGames({ gameName, gameId });
       currentGame.setCurrentGame(gameId);
       container.style.display = 'none';
@@ -107,8 +109,9 @@ const addGame = (htmlElements, rerender) => {
   const [form, gameInput] = htmlElements;
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const newGame = gameInput.value.trim();
+    let newGame = gameInput.value.trim();
     if (newGame !== '') {
+      newGame = newGame.charAt(0).toUpperCase() + newGame.slice(1);
       addNewGameSpinnner('start');
       const { gameName, gameId } = await createGame(newGame);
       gamesData.updateGames({ gameName, gameId });
