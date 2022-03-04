@@ -11,7 +11,7 @@ const myGamesTemplate = () => {
     </div>
     <div class="my-games-section">
       <form class="new-game-form">
-        <input type="text" placeholder="Add a new game..." id="input-new-game" value=""/>
+        <input type="text" placeholder="Add a new game..." id="input-new-game" value="" required/>
         <button type="submit" id="submit-new-game">Add Game</button>
       </form>
     </div>
@@ -45,7 +45,7 @@ const enterGamePopup = (container) => {
         <legend>Welcome to Leaderboard</legend>
         <br />
         <div>
-          <input type="text" placeholder="Enter a game" id="game-input" value="" />
+          <input type="text" placeholder="Enter a game" id="game-input" value="" required/>
           <br />
           <button type="submit" id="submit-game">OK</button>
         </div>
