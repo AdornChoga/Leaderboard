@@ -1,5 +1,5 @@
 import apiPathInfo from './api.js';
-import { scoreUploadSpinnner } from './spinners.js';
+import { scoreUploadSpinner } from './spinners.js';
 
 const postScore = async (user, score) => {
   const {
@@ -17,7 +17,7 @@ const postScore = async (user, score) => {
     },
   });
   await response.json();
-  scoreUploadSpinnner('stop');
+  scoreUploadSpinner('stop');
 };
 
 export default postScore;
