@@ -96,7 +96,6 @@ const setHomeGame = () => {
     const game = gamesData.fetchGames()[0];
     currentGame.setCurrentGame(game.gameId);
     displayedGame.innerHTML = game.gameName;
-    loadScores(scoresContainer, recentScores);
   }
 
   if (gamesData.fetchGames().length === 0) {
