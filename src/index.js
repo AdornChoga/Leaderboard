@@ -20,8 +20,6 @@ if (currentGame.fetchCurrentGame().gameId) {
   enterGamePopup(popupContainer);
 }
 
-window.addEventListener('load', () => {
-  if (localStorage.getItem('games') === null) {
-    enterGamePopup(popupContainer);
-  }
-});
+if (localStorage.getItem('games') === null) {
+  enterGamePopup(popupContainer);
+}
