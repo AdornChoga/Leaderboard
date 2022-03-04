@@ -1,6 +1,8 @@
 import gamesData from './localstorage/games-data.js';
 import currentGame from './localstorage/current-game.js';
+import { createGamesMenu, createGamesList } from './create_games.js';
 import * as events from './events.js';
+import { notifyEmptyGames } from './conditional_rendering.js';
 
 const myGamesTemplate = () => {
   const myGamesContainer = document.querySelector('.my-games-container');
@@ -17,13 +19,16 @@ const myGamesTemplate = () => {
     </div>
   `;
   const gameMenu = document.querySelector('.game-menu');
-  events.createGamesMenu(gamesData.fetchGames(), currentGame.fetchCurrentGame(), gameMenu);
+  createGamesMenu(gamesData.fetchGames(), currentGame.fetchCurrentGame(), gameMenu);
   events.selectCurrentGame(gameMenu);
 
   const myGamesSection = document.querySelector('.my-games-section');
   const gamesList = document.createElement('ul');
   gamesList.classList.add('games-list-container');
-  events.createGamesList(gamesData.fetchGames(), gamesList);
+  gamesList.innerHTML = `
+    <li class="no-games-msg">Your games list is empty</li>
+  `;
+  createGamesList(gamesData.fetchGames(), gamesList);
   myGamesSection.appendChild(gamesList);
 
   myGamesSection.innerHTML += `
@@ -32,10 +37,13 @@ const myGamesTemplate = () => {
 
   const newGameForm = document.querySelector('.new-game-form');
   const inputNewGame = document.querySelector('#input-new-game');
+  const noGamesMsg = document.querySelector('.no-games-msg');
   events.addGame([newGameForm, inputNewGame], myGamesTemplate);
 
   const deleteButtons = document.querySelectorAll('.delete-game');
   events.deleteGame(deleteButtons, myGamesTemplate);
+
+  notifyEmptyGames(noGamesMsg);
 };
 
 const enterGamePopup = (container) => {

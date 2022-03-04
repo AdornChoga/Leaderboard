@@ -1,21 +1,22 @@
 import gamesData from './localstorage/games-data.js';
 import currentGame from './localstorage/current-game.js';
-import createGame from './create_game.js';
+import { createGame } from './create_games.js';
 import recentScores from './recent_scores.js';
 import loadScores from './load_scores.js';
 import postScore from './post_score.js';
+import { notifyEmptyScores, setHomeGame } from './conditional_rendering.js';
 import {
-  addNewGameSpinnner, initialGameSpinnner, scoreRefreshSpinnner, scoreUploadSpinnner,
+  addNewGameSpinner, initialGameSpinner, scoreRefreshSpinner, scoreUploadSpinner,
 } from './spinners.js';
 
-const submitInitialGame = (htmlElements, container) => {
+const submitInitialGame = async (htmlElements, container) => {
   const { form, gameInput } = htmlElements;
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     if (gameInput.value !== '') {
       let game = gameInput.value;
       game = game.charAt(0).toUpperCase() + game.slice(1);
-      initialGameSpinnner('start');
+      initialGameSpinner('start');
       const { gameName, gameId } = await createGame(game);
       gamesData.updateGames({ gameName, gameId });
       currentGame.setCurrentGame(gameId);
@@ -27,14 +28,22 @@ const submitInitialGame = (htmlElements, container) => {
 
 const addScore = () => {
   const addScoreForm = document.querySelector('.add-score-form');
+  const addGameWarning = document.querySelector('.add-game-first');
 
   addScoreForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const nameInput = document.querySelector('#name-input');
     const scoreInput = document.querySelector('#score-input');
     if (nameInput.value !== '' && scoreInput.value !== '') {
-      scoreUploadSpinnner('start');
-      postScore(nameInput.value, Number(scoreInput.value));
+      if (gamesData.fetchGames().length === 0) {
+        addGameWarning.style.display = 'inline';
+        setTimeout(() => {
+          addGameWarning.style.display = 'none';
+        }, 1500);
+      } else {
+        scoreUploadSpinner('start');
+        postScore(nameInput.value, Number(scoreInput.value));
+      }
       nameInput.value = '';
       scoreInput.value = '';
     }
@@ -45,64 +54,14 @@ const refreshScores = () => {
   const refreshBtn = document.querySelector('#refresh-button');
   const scoresContainer = document.querySelector('.scores-list');
 
-  refreshBtn.addEventListener('click', () => {
+  refreshBtn.addEventListener('click', async () => {
     if (currentGame.fetchCurrentGame().gameId) {
-      scoreRefreshSpinnner('start');
+      scoreRefreshSpinner('start');
       scoresContainer.innerHTML = '';
-      loadScores(scoresContainer, recentScores);
+      await loadScores(scoresContainer, recentScores);
+      scoreRefreshSpinner('stop');
     }
   });
-};
-
-const createGamesMenu = (games, current, container) => {
-  games.forEach((game) => {
-    const gameOption = document.createElement('option');
-    gameOption.classList.add('game-option');
-    gameOption.id = game.gameId;
-    gameOption.innerHTML = game.gameName;
-    if (game.gameId === current.gameId) {
-      gameOption.selected = true;
-    }
-    container.appendChild(gameOption);
-  });
-};
-
-const createGamesList = (games, container) => {
-  games.forEach((game) => {
-    const listItem = document.createElement('li');
-    listItem.classList.add('game-list-item');
-    listItem.innerHTML = `
-      <p>${game.gameName}</p>
-      <button type="button" class="delete-game" id="${game.gameId}">delete</button>
-    `;
-    container.appendChild(listItem);
-  });
-};
-
-const setHomeGame = () => {
-  const displayedGame = document.querySelector('.current-game');
-  const scoresContainer = document.querySelector('.scores-list');
-
-  if (gamesData.fetchGames().length > 0) {
-    gamesData.fetchGames().forEach((game) => {
-      if (game.gameId === currentGame.fetchCurrentGame().gameId) {
-        displayedGame.innerHTML = game.gameName.toUpperCase();
-      }
-    });
-  } else {
-    displayedGame.innerHTML = '';
-    scoresContainer.innerHTML = '';
-  }
-
-  if (gamesData.fetchGames().length === 1) {
-    const game = gamesData.fetchGames()[0];
-    currentGame.setCurrentGame(game.gameId);
-    displayedGame.innerHTML = game.gameName;
-  }
-
-  if (gamesData.fetchGames().length === 0) {
-    currentGame.setCurrentGame(null);
-  }
 };
 
 const addGame = (htmlElements, rerender) => {
@@ -112,7 +71,7 @@ const addGame = (htmlElements, rerender) => {
     let newGame = gameInput.value.trim();
     if (newGame !== '') {
       newGame = newGame.charAt(0).toUpperCase() + newGame.slice(1);
-      addNewGameSpinnner('start');
+      addNewGameSpinner('start');
       const { gameName, gameId } = await createGame(newGame);
       gamesData.updateGames({ gameName, gameId });
       rerender();
@@ -162,19 +121,19 @@ const navigation = () => {
     myGamesLink.style.display = 'none';
   });
 
-  home.addEventListener('click', () => {
+  home.addEventListener('click', async () => {
     mainTitle.style.display = 'block';
     gridContainer.style.display = window.innerWidth > 700 ? 'grid' : 'flex';
     displayedGame.style.display = 'block';
     home.style.display = 'none';
     myGamesContainer.style.display = 'none';
     myGamesLink.style.display = 'block';
+    await notifyEmptyScores();
   });
 };
 
 export {
   submitInitialGame,
-  deleteGame, addGame, createGamesList,
-  createGamesMenu, selectCurrentGame, navigation,
-  setHomeGame, addScore, refreshScores,
+  deleteGame, addGame, selectCurrentGame,
+  navigation, addScore, refreshScores,
 };

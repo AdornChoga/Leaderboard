@@ -278,6 +278,34 @@ input:focus {
   color: white;
 }
 
+.no-games-msg {
+  display: none;
+  color: black;
+  font-weight: bold;
+  outline: inset #257eb8;
+}
+
+.no-scores-msg {
+  color: white;
+  outline: inset white;
+}
+
+.no-scores-msg,
+.no-games-msg {
+  text-align: center;
+  padding: 0.4rem;
+  border-bottom-left-radius: 0.7rem;
+  border-bottom-right-radius: 0.7rem;
+  font-size: 1.7rem;
+}
+
+.add-game-first {
+  display: none;
+  font-style: italic;
+  color: white;
+  font-size: 1.7rem;
+}
+
 .my-games-section {
   display: flex;
   flex-direction: column-reverse;

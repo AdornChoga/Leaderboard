@@ -1,4 +1,4 @@
-const initialGameSpinnner = (action) => {
+const initialGameSpinner = (action) => {
   const submitFirstGameBtn = document.querySelector('#submit-game');
   if (action === 'start') {
     submitFirstGameBtn.innerHTML = `
@@ -10,7 +10,7 @@ const initialGameSpinnner = (action) => {
   }
 };
 
-const scoreUploadSpinnner = (action) => {
+const scoreUploadSpinner = (action) => {
   const submitBtn = document.querySelector('#submit-score');
   const refreshBtn = document.querySelector('#refresh-button');
   if (action === 'start') {
@@ -29,7 +29,7 @@ const scoreUploadSpinnner = (action) => {
   }
 };
 
-const scoreRefreshSpinnner = (action) => {
+const scoreRefreshSpinner = (action) => {
   const refreshBtn = document.querySelector('#refresh-button');
   if (action === 'start') {
     refreshBtn.innerHTML = `
@@ -41,7 +41,7 @@ const scoreRefreshSpinnner = (action) => {
   }
 };
 
-const addNewGameSpinnner = (action) => {
+const addNewGameSpinner = (action) => {
   const addNewGameBtn = document.querySelector('#submit-new-game');
   if (action === 'start') {
     addNewGameBtn.innerHTML = `
@@ -54,5 +54,5 @@ const addNewGameSpinnner = (action) => {
 };
 
 export {
-  scoreUploadSpinnner, scoreRefreshSpinnner, addNewGameSpinnner, initialGameSpinnner,
+  scoreUploadSpinner, scoreRefreshSpinner, addNewGameSpinner, initialGameSpinner,
 };

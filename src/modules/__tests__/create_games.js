@@ -3,7 +3,7 @@
 */
 
 import { describe, expect } from '@jest/globals';
-import { createGamesMenu, createGamesList } from '../events.js';
+import { createGamesMenu, createGamesList } from '../create_games.js';
 
 describe('Tests for creation of game menu', () => {
   const games = [{ gameName: 'game1', gameId: 1 }, { gameName: 'game2', gameId: 2 }];
